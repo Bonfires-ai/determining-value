@@ -1,0 +1,52 @@
+\section{Introduction}\label{sec:intro}
+
+Most of what a group knows is worked out in conversation and stays there. Discourse seldom turns into anything of
+value to the people who took part in it, and there are three reasons. A conversation leaves no object: when it ends,
+nothing persists that can be used again. Where an object is made, a name for a recurring problem or a procedure
+that can be invoked in a sentence, anyone can copy it, so no price forms and nothing flows back to whoever made
+it. And the work is joint: one person coins a phrase, another objects to it, a third is the first to use it, and
+no one of them is its owner.
+
+A group with a private motive needs no outside payment for this work. A company that structures its own knowledge
+keeps the benefit. But structured knowledge is a public good: one party's use of it does not diminish another's,
+and most of its benefit falls on people other than those who made it. Markets underpay for work of this kind. The
+institutions that sustained it historically, the craft guilds, paid for it by excluding outsiders
+(Section~\ref{sec:prior}). Networks that have tried to pay for it directly pay on votes, on the price of a token
+attached to a person, on scores that validators assign, or on counts of retrievals. Each is an opinion about
+knowledge or a proxy for its use, and an opinion costs less to produce than the knowledge it concerns.
+
+What is needed first is a unit of knowledge whose use is a fact. Such a unit can be told apart from others and
+traced to an origin, and any third party can repeat and check its application without trusting whoever reports it.
+What is needed second is a measure of that unit's worth that a small group cannot manufacture.
+
+\paragraph{Objective.} This paper specifies a protocol for the first stage of a supply chain of knowledge: the
+stage at which discourse is given a form that others can use. It asks two questions. How can people who take part
+in making sense of something come to hold a share of what is made? And how can collaborative work accrue value to
+the community that did it? We state the conditions under which serving the network pays better than gaming it, and
+what remains open to an adversary when they hold.
+
+\paragraph{Proposal.} The unit is the \emph{construction} of Fluid Construction Grammar: a pairing of a form with a
+meaning and an effect. The protocol requires that applying a construction to a text be deterministic, so that a
+use is a computation anyone holding the construction and the text can repeat. A set of constructions is a grammar,
+and a grammar is a symbolic harness for agents: it reads what is said and makes steps available, and the agent
+acts within them. A \emph{Bonfire} is a community with a grammar. Anyone who takes part in its discourse is a
+member, and members whose contributions become constructions earn stake in it. A Bonfire publishes its grammar for
+anyone to use and signals its grammar and what it is for. When another Bonfire meets something it cannot read, a
+lookup finds a grammar that can; the constructions that did the reading are tried, and those that go on working
+are adopted. A construction's worth is its \emph{breadth}: the number of independent Bonfires that have adopted it
+and still hold it. Issuance is paid to originating Bonfires according to breadth, with nothing below a threshold,
+so that what a few parties agree among themselves earns nothing. A share of what a construction earns passes to
+the parents it declares. \emph{Nodes} supply the computation, and the stake they pledge to a Bonfire sets a ceiling
+on what it can be paid, which only breadth can fill. What cannot be computed is whether several Bonfires are one
+party. That is answered by stake that can be lost, and under the assumptions of Section~\ref{sec:security} posing as
+many does not pay so long as the ceiling rate
+stays below the cost of capital plus the expected loss from being caught.
+
+\paragraph{Scope.} This paper is a specification with an argument. It supersedes the first version
+\citep{cortes2025value}. Constructions, their teaching and a tally of their uses inside a single group are built and
+described in a companion paper \citep{vera2026constructions}; the network of Bonfires and nodes is proposed here
+(Appendix~\ref{app:built}), with the questions it leaves open in Section~\ref{sec:open}. The protocol is
+indifferent to whether discourse is produced by people or by agents: the distinction cannot be checked, and the
+protocol asks only whether a construction does checkable work for communities other than its own. Supply and
+issuance schedules are specified in a separate token model document; here we refer only to \emph{the epoch
+budget}, the amount divided in one period.

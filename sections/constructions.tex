@@ -1,0 +1,54 @@
+\section{Constructions}\label{sec:constructions}
+
+\paragraph{The unit.} A construction pairs a \emph{form} with a \emph{meaning} and an \emph{effect}. The form is a
+pattern over what is said. The meaning is what a reader obtains when the form matches. The effect is an affordance:
+what the construction makes available when its meaning is acted on, such as a record that may be written to memory
+or a step that an agent is licensed to take. A construction that matches does not act; it makes an action
+available. The pairing of form and meaning is the central idea of construction grammar, which Fluid Construction
+Grammar (FCG) makes operational \citep{beuls2023fcgstate}. The effect is the addition of the companion paper
+\citep{vera2026constructions}.
+
+Constructions exist at every level of generality \citep{beuls2023cxgai}: a coined term, a fixed phrase that stands
+for a settled argument, a pattern with open slots such as ``$X$ is a coordination problem, not a technical one'',
+or an abstract schema for stating a claim with its evidence. A finite inventory of such units combines to read and
+produce an unbounded range of expressions.
+
+One construction that exists today shows the three parts \citep{vera2026constructions}. A member teaches the phrase
+``file $X$'' to mean ``make a ticket from $X$''. The definition is compiled, with no model, into a construction
+whose form is the word \emph{file} followed by a slot, whose meaning is a one-step procedure with the slot's text
+as its title, and whose effect is that the agent may run that procedure. When someone later says ``file broken
+printer'', the reading names the procedure and its title, and removing the construction leaves the sentence without
+that reading.
+
+Three properties make the construction a workable unit for a protocol. It can be \emph{individuated}: it can be
+named, hashed and counted. It can be \emph{attributed}: its first registration has a time and an origin. And its use
+is an \emph{event} that anyone holding the construction and the text can repeat.
+
+\paragraph{A symbolic harness.} An agent built on a language model is governed by a harness of prompts, tool
+definitions and control code that engineers write. A
+set of constructions does the same work. It reads each turn, and what it reads determines which steps are available
+to the agent. The engine's own search decides which construction applies, with no model in the loop, and the
+protocol requires that the same turn yield the same affordances every time (Section~\ref{sec:encounters}). A harness written in constructions can be taught in conversation,
+read, attributed, and served to anyone's agents. That is why it can be published.
+
+\paragraph{The grammar as a product.} Constructions are of two kinds. The \emph{base grammar} reads ordinary
+language and is the same everywhere; it is nobody's product and earns nothing. A Bonfire's \emph{own}
+constructions are those its members taught or derived from its discourse. A \emph{grammar}, in this paper, is a
+versioned set of a Bonfire's own constructions that it chooses to publish. The grammar is the Bonfire's product: a
+working capability, published for anyone to use. With it the Bonfire publishes a \emph{signal}, a statement of what
+the grammar is for, by which others find it (Section~\ref{sec:adoption}).
+
+The grammar is the product, but the construction is the unit of account. Credit (Section~\ref{sec:reward}) is
+counted per construction and never per grammar. If it were counted per grammar, a publisher could fill a grammar
+with constructions that do nothing and be credited for the bundle.
+
+\paragraph{Standing.} A Bonfire's \emph{inventory} is everything its agents read with: its own grammar, the constructions it has
+taken from others (Section~\ref{sec:adoption}), and the base grammar. Inside
+an inventory each construction has a \emph{standing}, a score that records how well it has served there. We adopt
+the rule published for language-game experiments in FCG \citep{nevens2022language}: a new construction starts at
+$0.5$; on a successful use the constructions used gain $0.1$ and their competitors lose $0.1$; on a failed use the
+constructions used lose $0.4$; and a construction whose score reaches $0$ is deleted. The authors report that,
+within conditions they state, the exact values do not determine the overall dynamics of learning. The shape is what
+matters here: success reinforces, competitors are inhibited, and failure costs more than success earns. Standing
+is local and is never paid on. Its one job in the protocol is to decide what an inventory keeps
+(Section~\ref{sec:adoption}).

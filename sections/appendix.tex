@@ -1,0 +1,27 @@
+\section{Glossary}\label{app:glossary}
+
+{\footnotesize\begin{multicols}{2}\begin{description}[leftmargin=1.9cm, style=nextline, itemsep=-1pt, topsep=0pt]
+  \item[Adoption] A Bonfire's signed confirmation of a construction taken from another, by reference to its registration.
+  \item[Bond] The stake its stakeholders hold in a Bonfire.
+  \item[Bonfire] A community with a grammar, which it publishes for open use.
+  \item[Breadth] The number of independent, bonded Bonfires that hold a construction in an epoch.
+  \item[Ceiling] The most a Bonfire can be paid in an epoch: the ceiling rate times the pledges committed to it.
+  \item[Holds] A Bonfire holds a construction in an epoch when it has adopted it and it did necessary work there.
+  \item[Lookup] A query that takes a gap to the grammars other Bonfires have published.
+  \item[Member] Anyone who takes part in a Bonfire's discourse.
+  \item[Node] An operator that supplies computation, issues receipts and re-executes those of others.
+  \item[Pledge] The fixed stake a node commits to one Bonfire it serves.
+  \item[Signal] A Bonfire's published statement of what its grammar is for.
+  \item[Stakeholder] A member who holds stake in a Bonfire, earned through contribution or locked.
+  \item[Trial] The state of a construction taken from another Bonfire before it is adopted: it reads, and its effect is off.
+  \item[Uptake] The adoption and continued holding of a construction by Bonfires other than its originator.
+\end{description}\end{multicols}}
+
+\section{What is built today}\label{app:built}
+
+The following exist in memory-kernel 2.0.1 \citep{memorykernel2026} and are described in the companion paper
+\citep{vera2026constructions}: reading each message of a conversation with a construction grammar, with no
+generative model call in the write path; constructions taught in conversation, compiled with no model and admitted
+once their teacher confirms them; a tally for each construction of its uses that answered, failed or were refused
+by the world; and a record of which construction replaced which. The score rule of
+Section~\ref{sec:constructions} and the network of Bonfires and nodes are proposed by this paper.

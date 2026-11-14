@@ -1,0 +1,73 @@
+\section{Reward}\label{sec:reward}
+
+At the end of each epoch the epoch budget is divided among Bonfires according to how widely the constructions they
+originated are held by other Bonfires, and each Bonfire divides what it receives between the nodes that serve it
+and its stakeholders.
+
+\paragraph{Breadth.} The \emph{breadth} of a construction in an epoch is the number of Bonfires that hold it
+(Section~\ref{sec:adoption}), counting only Bonfires that are independent of its originator and of one another and
+that carry at least a minimum bond (Section~\ref{sec:bond}). A Bonfire counts once in an epoch however often it
+used the construction, and it counts again in every later epoch in which it still holds it. Use inside the
+originating Bonfire counts nothing: a community needs no payment for work it does for itself.
+
+\paragraph{Credit.} A construction's \emph{credit} in an epoch depends only on its breadth. Below a threshold
+breadth it is nothing, and above the threshold it rises with breadth. Writing $n$ for the breadth, $n_0$ for the
+threshold and $g$ for the rule,
+\begin{equation}\label{eq:credit}
+  \text{credit} \;=\; g(n), \qquad g(n) = 0 \ \text{ for } n < n_0, \qquad g \text{ increasing for } n \ge n_0 .
+\end{equation}
+The threshold is what makes a small group's agreement worth nothing. Two Bonfires that adopt each other's
+constructions, or one Bonfire that registers ten thousand constructions which a single partner holds, sit below it.
+The shape of $g$ above the threshold is left open (Section~\ref{sec:open}). A share $\lambda$ of a construction's
+credit passes to the parents it declares (Section~\ref{sec:lineage}), and a Bonfire's credit is the sum over the
+constructions it originated, after those transfers.
+
+\paragraph{Why holding, and not spread.} A construction is paid for lasting in other communities, and nothing is
+paid for passing it on. That a convention is taken up does not show that it carries knowledge: among the early
+users of a new term, short-lived fashions and lasting changes look alike \citep{tarrade2024position}. A construction that is tried and dropped stops counting when it is dropped. One that a
+community keeps is counted afresh each epoch, so a grammar that stays in use keeps being funded. Counting each
+Bonfire once also makes repetition worthless. A finding about words points the same way: over short periods, a
+word's spread across users and threads predicts its fate better than its frequency does
+\citep{altmann2011niche}.
+
+\paragraph{Failure.} A failed reading counts for nothing, and it lowers the standing of the constructions tried
+(Section~\ref{sec:constructions}), so a construction pushed into contexts where it does not work leaves that
+inventory. Failures are never subtracted from an originator's credit. If they were, a Bonfire could harm another
+by adopting its constructions and misusing them.
+
+\paragraph{Division.} A fixed fraction of the epoch budget is set aside to pay for spot checks
+(Section~\ref{sec:bond}). The rest is divided among Bonfires in proportion to credit, and each Bonfire's payment is
+capped by the ceiling of Section~\ref{sec:bond}. The Bonfire passes a share $s$ of its payment to the nodes pledged
+to it, equally, and the rest goes to its stakeholders. The Bonfire publishes $s$. Bonfires compete for nodes
+through this rate, so the split between those who structure and those who serve is set by the participants.
+
+\paragraph{From contribution to stake.} A registration names the members whose contributions yielded the
+construction: those who taught it, and those who confirmed it. Of the stakeholders' part of what the construction earns, a fraction published by the Bonfire vests to them
+as stake in that Bonfire. A member who arrives with nothing and whose words become
+constructions that other communities keep thereby becomes a stakeholder. This is the protocol's answer to how
+people who take part in making sense of something come to hold a share of what is made.
+
+\paragraph{A worked epoch.} As a thought experiment, let $n_0 = 3$ and, for illustration only, $g(n) = n - 2$ at
+or above the threshold. Let $\lambda = 0.1$, the ceiling rate $c = 0.01$ and each node's pledge $q = 10{,}000$ (Section~\ref{sec:bond}), and $s = 0.4$, with $1{,}000$ left of the epoch budget after spot checks. Bonfire $A$ originated $x$, held by six
+Bonfires, and $y$, held by two; five nodes are pledged to it. Bonfire $B$ originated $z$, a variant of $x$ held by
+four Bonfires; four nodes are pledged to it. Table~\ref{tab:epoch} follows the division.
+
+\begin{table}[!htb]
+\centering\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+ & \textbf{Bonfire $A$} & \textbf{Bonfire $B$} \\
+\midrule
+Credit from breadth & $x$: $4$, \ $y$: $0$ & $z$: $2$ \\
+After the lineage share ($0.2$ from $z$ to $x$) & $4.2$ & $1.8$ \\
+Share of $1{,}000$ in proportion to credit & $700$ & $300$ \\
+Ceiling, $c\,k\,q$ & $500$ & $400$ \\
+Paid & $500$ & $300$ \\
+\quad to nodes (share $s$) & $200$ & $120$ \\
+\quad to stakeholders & $300$ & $180$ \\
+\bottomrule
+\end{tabular}
+\caption{A worked epoch (thought experiment). The $200$ that Bonfire $A$'s ceiling does not admit is not paid;
+what becomes of it is a question of issuance, left to the token model. Construction $y$, held by two Bonfires,
+earns nothing.}\label{tab:epoch}
+\end{table}

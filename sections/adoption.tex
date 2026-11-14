@@ -1,0 +1,49 @@
+\section{Adoption}\label{sec:adoption}
+
+A construction made in one Bonfire becomes part of another's language by the route a word takes between people.
+Someone meets a form they cannot read, learns it from a source that can, and keeps it if it goes on working. The
+protocol gives that route five steps; Figure~\ref{fig:adoption} shows the route.
+
+\paragraph{Signal.} Each Bonfire publishes, with its grammar, a signal: a statement of what the grammar is for.
+Signals are how a grammar is found. They cost nothing to make, so a Bonfire could claim every purpose; for that
+reason no payment rests on a signal, and each Bonfire ranks the grammars it consults by its own record of which
+ones answered it.
+
+\paragraph{Lookup.} When a Bonfire's agent meets a form its inventory cannot read, the gap becomes a \emph{lookup}:
+a query to the network, routed by the signals into the grammars of other Bonfires. Published grammars are open, so
+the lookup runs on a node that serves the asking Bonfire, which fetches the foreign grammar and applies it. The text that
+could not be read is shown to nobody else. Lookups that no grammar answers, grouped by what they were about, are
+the network's record of what remains to be structured.
+
+\paragraph{Trial.} If a foreign grammar reads the text, the constructions necessary to that reading are on offer
+together, since a construction torn from those it depends on may read nothing. They enter the asking Bonfire's
+inventory by reference to their originator's registration, at the starting score, as a \emph{trial}. A construction
+on trial reads, and its effect is switched off: an effect taken from elsewhere is behaviour taken from elsewhere,
+and it should not act before someone in the Bonfire has agreed to it.
+
+\paragraph{Selection.} Over the Bonfire's later discourse a construction on trial succeeds or fails beside the
+Bonfire's own, and its standing moves by the rule of Section~\ref{sec:constructions}. Where several Bonfires offer
+a reading for the same gap, their constructions compete here, and different Bonfires may settle differently. This
+is the naming game, played between communities \citep{steels1995spatial,baronchelli2006sharp}.
+
+\paragraph{Adoption.} The Bonfire's stakeholders confirm a construction that has earned its place, and it stays in the Bonfire's inventory with its effect on. It does not become one of the Bonfire's own
+constructions: its originator is unchanged. The confirmation is a signed attestation that references the
+originator's registration; that act is the \emph{adoption}. From then on, a Bonfire \emph{holds} a construction in
+an epoch when it has adopted it and the construction did necessary work in that Bonfire's own discourse in the
+epoch, as shown by receipts that anyone can re-execute. Holding is what the protocol counts
+(Section~\ref{sec:reward}).
+
+Adoption is free, and it is pulled by need: no Bonfire can place a construction in another. A Bonfire that starts
+from nothing becomes useful by adopting, and it has a reason to adopt by reference instead of copying, since a
+reference brings the construction as its originator maintains it and a copy earns its copier nothing
+(Section~\ref{sec:lineage}). A group that begins from the whole of another Bonfire's grammar is in this sense not a
+rival to it: it is one more community that holds its constructions.
+
+\begin{figure}[!htb]
+\centering
+\input{figures/fig-adoption}
+\caption{Adoption. A form from Bonfire $A$ meets a gap in Bonfire $B$. $B$'s lookup finds $A$'s construction, tries
+it, and adopts it; $B$ then counts toward the breadth of $A$'s construction for as long as $B$ holds it. If $B$
+changes the construction it registers a variant with $A$'s as its parent, and a share $\lambda$ of the variant's
+credit passes to $A$.}\label{fig:adoption}
+\end{figure}

@@ -1,0 +1,72 @@
+\section{Stake}\label{sec:bond}
+
+The rules of Section~\ref{sec:reward} decide what breadth is worth. They do not decide whose word is taken that
+the Bonfires holding a construction are separate parties. That is the work of stake.
+
+\paragraph{Bond and pledge.} The stake its stakeholders hold in a Bonfire is the Bonfire's \emph{bond}.
+Stakeholders share in the Bonfire's payment by its own rule, weigh in what enters its grammar, and lose their stake
+if the Bonfire is found at fault: they underwrite it, as the masters of a guild answered for its mark. A Bonfire
+counts toward the breadth of other Bonfires' constructions only while its bond is at least a minimum, $m$. A node
+that serves a Bonfire commits to it a \emph{pledge} of a fixed size, $q$. Stake pledged to one Bonfire cannot be
+pledged to another, so where a node places its pledges is a choice with a cost. Because every pledge is the same
+size, an operator who runs many nodes has committed many pledges, and the number of nodes behind a Bonfire is a
+measure of the stake committed to serving it.
+
+\paragraph{The ceiling.} Stake is the accountability engine of the protocol. It makes a Bonfire and a node
+answerable, and it limits what can be earned; it adds nothing to credit. In one epoch a Bonfire is paid at most a
+fixed multiple of the pledges committed to it. Writing $k$ for the number of nodes pledged to the Bonfire, $c$ for
+the multiple, the \emph{ceiling rate}, and $e$ for what the Bonfire is paid in the epoch,
+\begin{equation}\label{eq:ceiling}
+  e \;\le\; c\,k\,q .
+\end{equation}
+Breadth fills the ceiling, and the nodes committed to serving a grammar set it: uptake by other communities is the
+demand, and committed capacity is the limit. A pledge earns nothing of itself. The ceiling is linear in the number
+of pledges, so dividing or combining nodes changes nothing. A new Bonfire serves itself, and its ceiling is set by its own pledge. Pledges move toward grammars whose breadth earns more than their ceilings admit, and away from those that
+cannot fill them, so capital follows uptake and does not direct it. An amount above a ceiling is not paid; what
+becomes of it is a question of issuance, left to the token model. The reason for a ceiling and not a weight is
+empirical: where stake has raised rewards directly, rewards have followed stake and not service
+(Section~\ref{sec:prior}).
+
+A node receives its part of the share $s$, so the most a pledge can yield is $s\,c$ per epoch.
+
+\paragraph{Faults.} Table~\ref{tab:faults} lists what stake answers for.
+
+\begin{table}[!htb]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}p{0.34\textwidth}p{0.30\textwidth}X@{}}
+\toprule
+\textbf{Fault} & \textbf{What is lost} & \textbf{How it is decided} \\
+\midrule
+A receipt that does not re-execute, a receipt withheld on challenge, or a commitment altered after the fact &
+The pledge of the node that signed it &
+Re-execution by any node; a disagreement is settled by a bonded vote of nodes \\
+\addlinespace
+One party posing as several Bonfires, so that its own constructions appear widely held &
+The bonds of the Bonfires found to be one party, and the pledges of the nodes that party runs &
+A judged challenge, settled by a bonded vote \\
+\bottomrule
+\end{tabularx}
+\caption{Faults, what is lost, and how each is decided.}\label{tab:faults}
+\end{table}
+
+The first kind of fault is a matter of computation. One honest node suffices to find it, since re-execution has one right answer where the engine is deterministic. A ledger does not run the grammar engine, however, so when the accused node disputes the finding the
+dispute goes to a vote of nodes weighted by stake, and the vote is sound while most of the voting stake is honest.
+The second kind cannot be settled by computation at all. The question put to the vote is narrow: whether the
+governing stake of several Bonfires is controlled by one party. Each real Bonfire has a history to show for
+itself, in its members, its own constructions, its gaps, trials and adoptions. Because the protocol is indifferent
+to who or what produced a piece of discourse, generated conversation is not a fault. The design of the judged vote
+is among the open problems of Section~\ref{sec:open}.
+
+One further rule is proposed and left open. When a Bonfire is found at fault, the nodes pledged to it that the
+party at fault does not run lose a part of their pledge. Whoever's capital is exposed is who checks, and a node
+that can lose by serving a sham has a reason to examine a Bonfire before pledging to it. The cost is that an
+honest node can lose stake through another's fraud, and that nodes will be slow to serve a Bonfire with no history.
+
+A fraction $\varphi$ of slashed stake pays the challenger and the rest is destroyed. If the whole of it went to the
+challenger, an owner could challenge its own parties through another identity and lose nothing. Spot checks are
+paid from the part of the epoch budget set aside for them, whether or not they find a fault; this, and not the
+slash, is what answers the difficulty of Section~\ref{sec:agreements} that unpaid checks are not carried out.
+
+\paragraph{Lock.} A scientist's stake in a claim is reputation, which is slow to build and cannot be lent. A token
+can be borrowed for a day. Stake is therefore locked for a period at least as long as a challenge takes to bring,
+and whoever has asked to withdraw remains liable for faults committed while the tokens were locked.

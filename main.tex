@@ -1,0 +1,125 @@
+% Determining Value in the Space of Ideas, version 2: a whitepaper (draft, 2026-11-14).
+%
+% Rules for this document (see CONTRIBUTING.md):
+%   * A whitepaper in the vein of the Bitcoin whitepaper: short, linear, each section one job. No experiment, no
+%     test plan section, no survey of related work.
+%   * Every rule is stated in plain words before any formula. A formula appears only where it defines a rule.
+%   * Examples are thought experiments and are labelled so. No real community, customer or person is an example.
+%   * No marketing language, no product claims, no token sale, no supply figures, no issuance schedule. Issuance is
+%     specified in a separate token model document; the text says "the epoch budget".
+%   * Every status is explicit: built, proposed, or untested.
+%   * Not claimed: resistance to every fake-identity attack; that paying on reuse has been shown to fix earlier
+%     systems; that the security statement is more than a proposition with its assumptions listed.
+%   * A source is cited only after its primary text has been opened (see refs.bib).
+%   * Fixed vocabulary: Bonfire, member, stakeholder, node, agent, host chain, construction, grammar, signal,
+%     inventory, encounter, receipt, gap, lookup, trial, adoption, uptake, breadth, lineage, standing, bond, pledge,
+%     originator, epoch, epoch budget.
+%   * Fixed symbols: n breadth of a construction in an epoch; n_0 the breadth below which nothing is earned; g(n)
+%     credit as a function of breadth; m minimum bond for a Bonfire to count toward breadth; q the fixed pledge of
+%     one node to one Bonfire; k the number of nodes pledged to a Bonfire; c ceiling rate; s published share passed
+%     to nodes; lambda lineage share; r cost of capital per epoch; p probability per epoch that one party posing as
+%     several Bonfires is challenged and slashed; phi challenger's fraction.
+%
+% Build: make   (latexmk when it is on PATH, else tectonic)
+
+\documentclass[10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage[section]{placeins} % floats stay inside the section that owns them
+\usepackage{url}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,shapes.geometric,shapes.misc}
+\usepackage[font=small,labelfont=bf]{caption}
+% Figure colours: the navy headers and green units follow the look of the FCG web interface.
+\definecolor{cxnnavy}{RGB}{16,24,110}
+\definecolor{cxngreen}{RGB}{205,228,212}
+\definecolor{modelred}{RGB}{176,58,40}
+\definecolor{okgreen}{RGB}{34,120,74}
+\definecolor{amber}{RGB}{178,120,10}
+
+% \code{...}: typewriter text that may break after "/" and "-"
+\ExplSyntaxOn
+\tl_new:N \l__paper_code_tl
+\NewDocumentCommand \code { m }
+  {
+    \tl_set:Nn \l__paper_code_tl {#1}
+    \tl_replace_all:Nnn \l__paper_code_tl { / } { / \allowbreak }
+    \tl_replace_all:Nnn \l__paper_code_tl { - } { - \allowbreak }
+    \texttt { \l__paper_code_tl }
+  }
+\ExplSyntaxOff
+\newcommand{\cnst}[1]{\textsf{#1}} % a construction or keyword name
+\newtheorem{proposition}{Proposition}
+\setlist{itemsep=1pt,topsep=3pt}
+\setlength{\emergencystretch}{3em}
+\pagestyle{plain}
+
+\hypersetup{
+  pdftitle={Determining Value in the Space of Ideas (version 2)},
+  pdfauthor={Carlos A. Vera, M.D.},
+}
+
+\begin{document}
+
+{\centering
+{\Large\bfseries Determining Value in the Space of Ideas\par}
+\vspace{3pt}
+{\large Version 2\par}
+\vspace{6pt}
+Carlos A. Vera, M.D.\par
+\vspace{1pt}
+{\small Bonfires.ai}\par
+\vspace{2pt}
+{\small Draft, 2026-11-14}\par}
+\vspace{6pt}
+
+\begin{abstract}
+\noindent Discourse seldom turns into anything of value to the people who took part in it. Paying for the
+structuring of knowledge needs a unit whose use can be verified without trusting anyone's judgement of it, and a
+measure of its worth that a small group cannot manufacture. Existing systems pay on votes, prices, scores or stake.
+These are opinions or proxies, and they cost less to manufacture than the knowledge they stand for. We propose the
+construction, a pairing of form, meaning and effect, as the unit. The protocol requires that applying a
+construction to a text be deterministic, so that a use is a computation any third party can repeat. A Bonfire is a
+community with a grammar; membership is free, and members whose contributions become constructions earn stake. A
+Bonfire that cannot read something looks it up in the grammars others have published, tries the constructions that
+read it, and adopts those that go on working. The measure of a construction's worth is its breadth: the number of
+independent Bonfires that have adopted it and still hold it. Issuance is paid to originators according to breadth,
+with nothing below a threshold, and passes in part to the parents a construction declares. Nodes supply
+computation, and the stake they pledge sets a ceiling that only breadth can fill. Whether several Bonfires are one
+party cannot be computed; it is answered by stake, and under stated assumptions posing as many does not pay so long as the
+ceiling rate stays below the cost of capital plus the expected loss from being caught.
+\end{abstract}
+
+\input{sections/intro}
+\input{sections/constructions}
+\input{sections/encounters}
+\input{sections/agreements}
+\input{sections/adoption}
+\input{sections/lineage}
+\input{sections/reward}
+\input{sections/bond}
+\input{sections/security}
+\input{sections/prior}
+\input{sections/open}
+\input{sections/conclusion}
+
+{\small\setlength{\bibsep}{2pt plus 1pt}
+\bibliographystyle{plainnat}
+\bibliography{refs}}
+
+\appendix
+\input{sections/appendix}
+
+\end{document}

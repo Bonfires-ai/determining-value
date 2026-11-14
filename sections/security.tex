@@ -1,0 +1,117 @@
+\section{Security}\label{sec:security}
+
+\begin{proposition}\label{prop:service}
+To earn under the protocol, a Bonfire must originate constructions that at least $n_0$ independent Bonfires adopt
+and go on holding, or constructions from which such constructions are declared to descend. A party that wants to
+earn without that must make its constructions appear widely held. Where it does so by posing as several Bonfires,
+it commits a fault, and under the assumptions and limits below what it can earn is bounded by the stake it puts at
+risk.
+\end{proposition}
+
+The argument rests on four assumptions: (1)~the host chain orders registrations and commitments honestly; (2)~every
+receipt is open to challenge, a random sample is spot-checked, at least one of the nodes that examine a receipt is
+honest, and most of the stake that votes on a dispute is honest; (3)~the text of an encounter is available to a
+node that samples or challenges its receipt; (4)~one party posing as several Bonfires is challenged and slashed
+with probability at least $p$ in each epoch.
+
+\paragraph{Attacks.} Table~\ref{tab:attacks} lists the ways of seeking payment without providing the service, with
+the rule that answers each.
+
+\begin{table}[!htb]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}p{0.38\textwidth}X@{}}
+\toprule
+\textbf{Attack} & \textbf{What answers it} \\
+\midrule
+Repeating a use, or inventing members & A Bonfire counts once per epoch toward a construction's breadth
+(Section~\ref{sec:reward}) \\
+A Bonfire using its own grammar & Use inside the originating Bonfire counts nothing \\
+A few Bonfires adopting one another's constructions & Breadth below the threshold $n_0$ earns nothing \\
+Registering many constructions & Each needs its own breadth \\
+Copying a construction, or renaming its form & Credit belongs to the earliest registration that gives the same
+reading (Section~\ref{sec:lineage}) \\
+Adopting a construction in order to misuse it & Failures are never subtracted from credit \\
+Signing a false receipt & Re-execution by an honest node, a vote if disputed; the pledge is lost
+(Section~\ref{sec:bond}) \\
+Challenging oneself to recover stake & Only a fraction $\varphi$ of a slash reaches any challenger \\
+Borrowing stake for a day & The lock \\
+One party posing as several Bonfires & Bounded by the ceiling, the bonds and the chance of challenge (below) \\
+Paying independent Bonfires to hold a construction & Open (Limits) \\
+Many independent Bonfires agreeing to hold one another's constructions & Accepted. The threshold sets how many must agree; where it should sit is open \\
+A committed minority capturing a convention & Accepted. The network agrees on a ledger, not on one language
+(Section~\ref{sec:prior}) \\
+\bottomrule
+\end{tabularx}
+\caption{Attacks and the rules that answer them.}\label{tab:attacks}
+\end{table}
+
+The last four rows are not answered by a rule. Two are accepted and one is open. Posing as several Bonfires is
+bounded, and the rest of this section is about it.
+
+\paragraph{Posing as many.} A party that wants breadth it has not earned must supply the Bonfires itself. It founds
+at least $n_0$ of them, bonds each, has them adopt the constructions of a Bonfire it also controls, and generates
+discourse in each so that the constructions do necessary work there. Every receipt re-executes, because the
+computations are real. Nothing in a receipt shows who controls a Bonfire.
+
+What limits the arrangement is stated first in words. Each sham Bonfire must carry the minimum bond. The
+originating Bonfire is paid only up to its ceiling, so the party must also commit the pledges that set it. Holding
+all of that stake has a cost. In every epoch all of it may be lost, and an owner who brings the challenge itself
+recovers only the challenger's fraction. So the income from posing as many is at most a multiple of the capital put
+at risk, and that multiple can be set below the cost of the risk.
+
+Let $r$ be the cost of capital per epoch, the return given up by locking a token; $p$ the probability of
+assumption~4; and $\varphi$ the challenger's fraction. A party that poses as $n_0$ Bonfires and serves its
+originating Bonfire with $k$ nodes of its own is paid at most $c\,k\,q$ in an epoch, keeping both the nodes' share
+and the stakeholders'. Its stake is $n_0\,m + k\,q$, which costs $r\,(n_0 m + k q)$ to hold and is exposed to an
+expected loss of $(1-\varphi)\,p\,(n_0 m + k q)$. It does not profit when
+\[
+  c\,k\,q \;\le\; \bigl(r + (1-\varphi)\,p\bigr)\,(n_0\,m + k\,q),
+\]
+for which it is enough that $c \le r + (1-\varphi)\,p$. An honest node whose Bonfire fills its ceiling earns
+$s\,c\,q$ on a pledge that costs $r\,q$ to hold, and profits when $s\,c > r$. The protocol and the published shares
+must therefore satisfy
+\begin{equation}\label{eq:ring}
+  \frac{r}{s} \;<\; c \;\le\; r + (1-\varphi)\,p ,
+\end{equation}
+with a margin on the right. The window is not empty only if $r\,(1-s)/s < (1-\varphi)\,p$, which sets a least
+share that a Bonfire must pass to its nodes. The ceiling rate sits high enough that serving pays a node its cost of capital, and no
+higher than that cost plus the chance of being caught, discounted by what a challenger can recover. The bonds of
+the sham Bonfires are a further cost that does not depend on being caught: below a certain scale they exceed
+anything the ceiling admits.
+
+The same reasoning covers an honest Bonfire that serves itself, has room under its ceiling and is tempted to
+add sham holders. What it could gain is at most what the ceiling admits, and what it exposes is its own bond as
+well as the sham bonds and its pledges.
+
+The bound uses the following and nothing else. (a)~The ceiling and the minimum bond are enforced. (b)~A successful
+challenge takes the whole of the stake listed in Table~\ref{tab:faults}. (c)~Of slashed stake at most $\varphi$
+reaches any challenger and the rest is destroyed. (d)~The cost of capital is $r$ for all parties, and they are
+neutral to risk. (e)~An honest party is not slashed by mistake. (f)~$p$ is a floor that holds from the first
+epoch. The bound is on capital, not on the number of identities: every Bonfire that counts is bonded and every
+pledge is the same size, so dividing capital among more Bonfires or nodes raises nothing.
+
+\paragraph{Limits.}
+\begin{itemize}
+  \item The bound depends on $p$, which is unmeasured (Section~\ref{sec:open}). It is also not a given: it is the
+  result of someone looking. The parties with a reason to look are challengers, paid the fraction $\varphi$, and
+  nodes whose pledges would be exposed under the rule proposed in Section~\ref{sec:bond}. If faking is rare,
+  looking pays little, and a protocol cannot assume that $p$ stays where it was measured.
+  \item The bound assumes that the party supplies the nodes itself. If honest nodes pledge to a Bonfire whose breadth
+  is a sham, they set its ceiling while only the sham bonds are certainly at risk. The case then rests on whether
+  those nodes can lose their pledges, which is left open.
+  \item Breadth can be bought. A Bonfire that holds a construction earns nothing by it and needs one reading an
+  epoch to do so, so an originator can pay independent Bonfires, outside the protocol, to hold what they do not
+  need. No rule answers this. It costs what $n_0$ holders ask, which is a reason for a threshold that is not small.
+  \item The evidence that several Bonfires are one party is their histories, and it is a matter of judgement.
+  Deciding it reintroduces opinion at one point of the protocol.
+  \item While stake is locked its holding cost is already paid. A party with stake it cannot yet withdraw is surely deterred only if $c < (1-\varphi)\,p$, which is stricter than (\ref{eq:ring}). The lock should be no longer than
+  challenges require.
+  \item The epoch budget is shared. Faked breadth that only breaks even still takes income from honest parties,
+  which is why the right-hand inequality needs a margin.
+  \item A reward that rises with breadth, from a threshold, favours what is already widely held, and a
+  construction of real use to two communities earns nothing.
+  \item The operating cost of a node is outside the condition. A node that serves real discourse spends more than
+  one that serves generated discourse.
+  \item The comparison with earlier systems is a hypothesis: none of them paid on replayable use
+  (Section~\ref{sec:prior}).
+\end{itemize}

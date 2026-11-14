@@ -1,0 +1,41 @@
+\section{Open problems}\label{sec:open}
+
+\begin{itemize}
+  \item \emph{Determinism.} Replay requires that the same engine, inventory and search order give the same reading
+  on every machine. This has not been measured. Where implementations differ, a dispute has no right answer; The
+  Graph resolves such cases as a draw \citep{thegraph2026docs}.
+  \item \emph{The shape of the reward.} Where the threshold $n_0$ sits and how credit rises above it. A low
+  threshold admits small groups; a steep rise favours what is already widely held.
+  \item \emph{The value of $p$.} Condition (\ref{eq:ring}) can be met only if the chance that one party posing as
+  several Bonfires is caught is known to within a margin, and stays there when few are looking.
+  \item \emph{Deciding a judged challenge.} Who votes, what a challenger must post, and what a mistaken slash costs
+  an honest party. The argument of Section~\ref{sec:security} assumes mistaken slashes are rare.
+  \item \emph{Nodes behind a Bonfire at fault.} Whether, and in what part, a node loses its pledge when the Bonfire
+  it serves is found at fault (Section~\ref{sec:bond}).
+  \item \emph{Parameters.} The ceiling rate $c$, the pledge $q$, the minimum bond $m$, the challenger's fraction
+  $\varphi$, the lineage share $\lambda$, the length of the lock, the rate of spot checks and what they are paid,
+  and whether the protocol bounds the share $s$.
+  \item \emph{Necessity and granularity.} A reading may survive the removal of either of two constructions and fail
+  without both; the test then credits neither. Attribution rules of the Shapley kind would handle this but are
+  vulnerable when a participant can appear under more than one name \citep{ohta2008anonymity}.
+  \item \emph{Comparing meanings.} The copy rule asks whether an earlier construction gives the same reading. A copy
+  that renames the symbols of the meaning gives a different one, and a test of equivalence is wanted.
+  \item \emph{Registration in bulk.} Priority belongs to the first to register, and constructions can be generated
+  and registered in any number ahead of the communities that would have made them. What registration should cost
+  is open.
+  \item \emph{Declaring parents.} A construction that declares a parent gives up a share of its credit. A test of
+  derivation that anyone can run is wanted.
+  \item \emph{The base grammar.} It earns nothing, and whoever changes it can make any construction unnecessary.
+  Who maintains it, and how that work is paid for, is open.
+  \item \emph{What a node costs.} A node is paid a share of issuance. Whether that covers the computation it
+  supplies, and who pays where it does not, is open.
+  \item \emph{Disclosure.} A challenge shows the turns of one encounter to the challenger.
+  \item \emph{Payment from use.} The protocol is funded by issuance alone. Whether payment from those who use the
+  work of agents further down the supply chain should stand behind it is open.
+  \item \emph{Learning without teaching.} Constructions enter a grammar today by being taught. Deriving them from a
+  group's discourse is a proposed experiment of the companion paper \citep{vera2026constructions}.
+\end{itemize}
+
+Most of these would be settled by simulation before deployment: a naming game among Bonfires that hold different
+grammars, with lookups, adoptions and lineage recorded, and the same game with a party that poses as several
+Bonfires, a group that agrees to hold one another's constructions, and a party that borrows stake.

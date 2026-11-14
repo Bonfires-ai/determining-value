@@ -1,0 +1,12 @@
+# build by-products
+main.aux
+main.log
+main.bbl
+main.blg
+main.out
+main.toc
+main.fls
+main.fdb_latexmk
+main.synctex.gz
+# a local tectonic binary, if you keep one here
+.tools/

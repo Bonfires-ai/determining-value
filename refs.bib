@@ -1,0 +1,409 @@
+% refs.bib for the v2 whitepaper (2026-11-13).
+%
+% An entry is added only after its primary page was opened: the arXiv abstract page, the ACL Anthology page, the
+% publisher's page or an author-hosted PDF. Each entry's `verified` field (ignored by the style) says what was opened
+% and when; `make lint` fails on an entry without one. Entries shared with the companion paper are copied whole.
+% Search queries contained only the cited works' titles and authors.
+%
+% Left out, with the reason (the sentences that needed them were dropped or reworded):
+%   * Cheng and Friedman (2005), "Sybilproof reputation mechanisms": no primary copy could be opened; the result is
+%     cited through Stannat et al. (2021), Theorem 5.2, which was read.
+%   * Merton (1957), "Priorities in Scientific Discovery", and Dasgupta and David (1994), "Toward a new economics of
+%     science": the bibliographic records were found, but no opened page confirmed the claim about the priority rule
+%     that the text would have attached to them, so the priority-rule row was dropped.
+%   * Hull (1988), "Science as a Process": the record was found; no opened page supported the claim that standing
+%     comes from others' use of one's work, so that row was dropped.
+%   * Centola et al. (2018): the 25 percent figure is not in the abstract and is not used.
+%   * Miller, Weyl and Erichsen (COCM): the definition could not be opened; not used.
+
+% ---------------------------------------------------------------- shared with paper/refs.bib (copied whole)
+
+@article{baronchelli2006sharp,
+  author  = {Baronchelli, Andrea and Felici, Maddalena and Loreto, Vittorio and Caglioti, Emanuele and Steels, Luc},
+  title   = {Sharp transition towards shared vocabularies in multi-agent systems},
+  journal = {Journal of Statistical Mechanics: Theory and Experiment},
+  volume  = {2006},
+  number  = {06},
+  pages   = {P06014},
+  year    = {2006},
+  doi     = {10.1088/1742-5468/2006/06/P06014},
+  verified = {publisher page (iopscience.iop.org), fetched}
+}
+
+@article{steels1995spatial,
+  author  = {Steels, Luc},
+  title   = {A Self-Organizing Spatial Vocabulary},
+  journal = {Artificial Life},
+  volume  = {2},
+  number  = {3},
+  pages   = {319--332},
+  year    = {1995},
+  doi     = {10.1162/artl.1995.2.3.319},
+  verified = {publisher page (direct.mit.edu/artl/article/2/3/319/2251) via a search restricted to the publisher domain; direct fetch refused}
+}
+
+@inproceedings{beuls2023fcgstate,
+  title     = {{Fluid Construction Grammar}: State of the Art and Future Outlook},
+  author    = {Beuls, Katrien and Van Eecke, Paul},
+  editor    = {Bonial, Claire and Tayyar Madabushi, Harish},
+  booktitle = {Proceedings of the First International Workshop on Construction Grammars and {NLP} ({C}x{G}s+{NLP}, {GURT}/{S}yntax{F}est 2023)},
+  month     = mar,
+  year      = {2023},
+  address   = {Washington, D.C.},
+  publisher = {Association for Computational Linguistics},
+  url       = {https://aclanthology.org/2023.cxgsnlp-1.6/},
+  pages     = {41--50},
+  verified     = {ACL Anthology 2023.cxgsnlp-1.6 (its BibTeX)}
+}
+
+@misc{beuls2023cxgai,
+  author       = {Beuls, Katrien and Van Eecke, Paul},
+  title        = {Construction Grammar and Artificial Intelligence},
+  year         = {2023},
+  eprint       = {2309.00135},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL},
+  howpublished = {arXiv:2309.00135},
+  note         = {Author's draft of a chapter for the Cambridge Handbook of Construction Grammar},
+  verified     = {arXiv API}
+}
+
+% ---------------------------------------------------------------- consensus, verification, fake identities
+
+@article{lamport1982byzantine,
+  author   = {Leslie Lamport and Robert Shostak and Marshall Pease},
+  title    = {The {B}yzantine Generals Problem},
+  journal  = {ACM Transactions on Programming Languages and Systems},
+  volume   = {4},
+  number   = {3},
+  pages    = {382--401},
+  year     = {1982},
+  verified = {https://lamport.azurewebsites.net/pubs/byz.pdf (PDF pages 1-2 read; footer prints the journal, Vol. 4, No. 3, July 1982, Pages 382-401), 2026-11-13}
+}
+
+@misc{canetti2011delegation,
+  author       = {Ran Canetti and Ben Riva and Guy N. Rothblum},
+  title        = {Two 1-Round Protocols for Delegation of Computation},
+  howpublished = {Cryptology ePrint Archive, Paper 2011/518},
+  year         = {2011},
+  url          = {https://eprint.iacr.org/2011/518},
+  verified     = {https://eprint.iacr.org/2011/518 (ePrint landing page and abstract; the page gives no published venue, so the ePrint is cited), 2026-11-13}
+}
+
+@inproceedings{luu2015verifier,
+  author    = {Loi Luu and Jason Teutsch and Raghav Kulkarni and Prateek Saxena},
+  title     = {Demystifying Incentives in the Consensus Computer},
+  booktitle = {22nd ACM Conference on Computer and Communications Security (CCS 2015)},
+  year      = {2015},
+  note      = {Cryptology ePrint Archive, Paper 2015/702},
+  url       = {https://eprint.iacr.org/2015/702},
+  verified  = {https://eprint.iacr.org/2015/702 (ePrint landing page and abstract; publication info names CCS 2015; no DOI or pages on the page), 2026-11-13}
+}
+
+@misc{nakamoto2008bitcoin,
+  author   = {Satoshi Nakamoto},
+  title    = {Bitcoin: A Peer-to-Peer Electronic Cash System},
+  year     = {2008},
+  url      = {https://bitcoin.org/bitcoin.pdf},
+  verified = {https://bitcoin.org/bitcoin.pdf (PDF page 1 read: title and author; no date is printed on the document, the year 2008 is the commonly given release year and was not read from the page), 2026-11-13}
+}
+
+@inproceedings{ohta2008anonymity,
+  author    = {Naoki Ohta and Vincent Conitzer and Yasufumi Satoh and Atsushi Iwasaki and Makoto Yokoo},
+  title     = {Anonymity-proof {S}hapley Value: Extending {S}hapley Value for Coalitional Games in Open Environments},
+  booktitle = {Proceedings of the 7th International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2008)},
+  address   = {Estoril, Portugal},
+  year      = {2008},
+  pages     = {927--934},
+  publisher = {International Foundation for Autonomous Agents and Multiagent Systems},
+  verified  = {the paper PDF at ifaamas.csc.liv.ac.uk (pages 1-2 read; its "Cite as" line gives the venue and pages), 2026-11-13}
+}
+
+@misc{lui2025bittensor,
+  title         = {Bittensor Protocol: The Bitcoin in Decentralized Artificial Intelligence? A Critical and Empirical Analysis},
+  author        = {Lui, Elizabeth and Sun, Jiahao},
+  year          = {2025},
+  eprint        = {2507.02951},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR},
+  howpublished  = {arXiv:2507.02951},
+  verified      = {https://arxiv.org/abs/2507.02951 (abstract page and PDF body, Fig. 4 correlations read; no journal reference listed), 2026-11-13}
+}
+
+@misc{bittensor2026weightcopy,
+  title        = {The Weight Copying Problem},
+  author       = {{Learn Bittensor}},
+  year         = {2026},
+  howpublished = {Learn Bittensor, Developer Guides},
+  url          = {https://guides.learnbittensor.org/learn/weight-copying-in-bittensor},
+  note         = {Accessed 2026-11-13},
+  verified     = {https://guides.learnbittensor.org/learn/weight-copying-in-bittensor (page read; it shows no date, the year is the access year), 2026-11-13}
+}
+
+@inproceedings{li2019steem,
+  title     = {Incentivized Blockchain-based Social Media Platforms: A Case Study of Steemit},
+  author    = {Li, Chao and Palanisamy, Balaji},
+  booktitle = {Proceedings of the ACM Conference on Web Science (WebSci '19)},
+  year      = {2019},
+  address   = {Boston, MA, USA},
+  publisher = {ACM},
+  note      = {arXiv:1904.07310},
+  verified  = {https://arxiv.org/abs/1904.07310 (abstract page and PDF read; venue from the PDF header, pages and DOI not verified and omitted), 2026-11-13}
+}
+
+@article{yang2025farcaster,
+  title    = {Beyond Single-Tokenomics: How {Farcaster}'s Pluralistic Incentives Reshape Social Networking},
+  author   = {Yang, Wen and Ye, Qiming and Ascigil, Onur and Sokoto, Saidu and Balduf, Leonhard and Kr{\'o}l, Micha{\l} and Tyson, Gareth},
+  journal  = {Proceedings of the ACM on Measurement and Analysis of Computing Systems},
+  volume   = {9},
+  number   = {3},
+  year     = {2025},
+  doi      = {10.1145/3771565},
+  note     = {Article 50. arXiv:2511.00827},
+  verified = {https://arxiv.org/abs/2511.00827 (abstract page and PDF read; journal details from the ACM reference line in the PDF), 2026-11-13}
+}
+
+@inproceedings{lamorgia2023nft,
+  title     = {A Game of {NFTs}: Characterizing {NFT} Wash Trading in the {Ethereum} Blockchain},
+  author    = {La Morgia, Massimo and Mei, Alessandro and Mongardini, Alberto Maria and Nemmi, Eugenio Nerio},
+  booktitle = {2023 IEEE 43rd International Conference on Distributed Computing Systems (ICDCS)},
+  publisher = {IEEE},
+  year      = {2023},
+  doi       = {10.1109/ICDCS57875.2023.00018},
+  note      = {arXiv:2212.01225},
+  verified  = {https://arxiv.org/abs/2212.01225 (abstract page and PDF read; pages omitted, the IEEE page did not load), 2026-11-13}
+}
+
+% ---------------------------------------------------------------- language games, diffusion of conventions
+
+@inproceedings{nevens2022language,
+  title     = {Language Acquisition through Intention Reading and Pattern Finding},
+  author    = {Nevens, Jens and Doumen, Jonas and Van Eecke, Paul and Beuls, Katrien},
+  booktitle = {Proceedings of the 29th International Conference on Computational Linguistics},
+  year      = {2022},
+  address   = {Gyeongju, Republic of Korea},
+  publisher = {International Committee on Computational Linguistics},
+  pages     = {15--25},
+  url       = {https://aclanthology.org/2022.coling-1.2/},
+  verified  = {https://aclanthology.org/2022.coling-1.2/ (Anthology page and PDF; the passage on construction scores read), 2026-11-13}
+}
+
+@article{dallasta2006nonequilibrium,
+  title    = {Non-equilibrium dynamics of language games on complex networks},
+  author   = {Dall'Asta, Luca and Baronchelli, Andrea and Barrat, Alain and Loreto, Vittorio},
+  journal  = {Physical Review E},
+  volume   = {74},
+  pages    = {036105},
+  year     = {2006},
+  doi      = {10.1103/PhysRevE.74.036105},
+  verified = {https://arxiv.org/abs/physics/0607054 (abstract page with its journal reference), 2026-11-13}
+}
+
+@article{lu2009naming,
+  title    = {The Naming Game in Social Networks: Community Formation and Consensus Engineering},
+  author   = {Lu, Qiming and Korniss, G. and Szymanski, B. K.},
+  journal  = {Journal of Economic Interaction and Coordination},
+  volume   = {4},
+  pages    = {221--235},
+  year     = {2009},
+  doi      = {10.1007/s11403-009-0057-7},
+  verified = {https://arxiv.org/abs/1008.1096 (abstract page with its journal reference), 2026-11-13}
+}
+
+@article{xie2011social,
+  title    = {Social consensus through the influence of committed minorities},
+  author   = {Xie, J. and Sreenivasan, S. and Korniss, G. and Zhang, W. and Lim, C. and Szymanski, B. K.},
+  journal  = {Physical Review E},
+  volume   = {84},
+  pages    = {011130},
+  year     = {2011},
+  doi      = {10.1103/PhysRevE.84.011130},
+  verified = {https://arxiv.org/abs/1102.3931 (abstract page with its journal reference), 2026-11-13}
+}
+
+@article{ashery2025emergent,
+  title    = {Emergent social conventions and collective bias in {LLM} populations},
+  author   = {Ashery, Ariel Flint and Aiello, Luca Maria and Baronchelli, Andrea},
+  journal  = {Science Advances},
+  volume   = {11},
+  pages    = {eadu9368},
+  year     = {2025},
+  doi      = {10.1126/sciadv.adu9368},
+  verified = {https://arxiv.org/abs/2410.08948 (abstract page with its journal reference), 2026-11-13}
+}
+
+@article{altmann2011niche,
+  title    = {Niche as a Determinant of Word Fate in Online Groups},
+  author   = {Altmann, Eduardo G. and Pierrehumbert, Janet B. and Motter, Adilson E.},
+  journal  = {PLOS ONE},
+  volume   = {6},
+  number   = {5},
+  pages    = {e19009},
+  year     = {2011},
+  doi      = {10.1371/journal.pone.0019009},
+  verified = {https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0019009, 2026-11-13}
+}
+
+@article{tarrade2024position,
+  title    = {How position in the network determines the fate of lexical innovations on {Twitter}},
+  author   = {Tarrade, Louise and Chevrot, Jean-Pierre and Magu{\'e}, Jean-Philippe},
+  journal  = {PLOS Complex Systems},
+  volume   = {1},
+  number   = {1},
+  pages    = {e0000005},
+  year     = {2024},
+  doi      = {10.1371/journal.pcsy.0000005},
+  verified = {https://journals.plos.org/complexsystems/article?id=10.1371/journal.pcsy.0000005, 2026-11-13}
+}
+
+@misc{cortes2025value,
+  author       = {Cortes, Axel and Vera, Carlos A. and Bate, Joshua},
+  title        = {Determining Value in the Space of Ideas},
+  year         = {2025},
+  howpublished = {Whitepaper, DeSciWorld and CEL, November 2025},
+  verified     = {the 17-page PDF of version 1, read in full, 2026-11-13}
+}
+
+@misc{vera2026constructions,
+  author       = {Vera, Carlos A.},
+  title        = {Constructions as Functional Units of Knowledge: Memory and Control for Agents without Generative Extraction},
+  year         = {2026},
+  howpublished = {Draft, in preparation},
+  verified     = {paper/main.tex in this repository (title block, draft of 2026-11-10), 2026-11-13}
+}
+
+@misc{memorykernel2026,
+  author       = {{Bonfires.ai}},
+  title        = {memory-kernel, version 2.0.1},
+  year         = {2026},
+  howpublished = {Software},
+  url          = {https://github.com/Bonfires-ai/memory-kernel},
+  verified     = {named with this version in the companion paper (paper/sections/kernel.tex); the repository page itself was not fetched, 2026-11-13}
+}
+
+@misc{craig2024friendtech,
+  author       = {Craig, Tim},
+  title        = {Friend.tech creators walk off with \$44m as project shuts down},
+  year         = {2024},
+  howpublished = {DL News, 9 September 2024},
+  url          = {https://www.dlnews.com/articles/defi/friend-tech-shuts-down-after-revenue-and-users-plummet/},
+  verified     = {the article page (headline, author, date and fee figures read; the page notes its headline was later updated to say the protocol continues to operate), 2026-11-13}
+}
+
+@misc{eas2024contracts,
+  author       = {{Ethereum Attestation Service}},
+  title        = {{EAS} contracts and documentation},
+  year         = {2024},
+  howpublished = {Software and documentation, MIT licence},
+  url          = {https://github.com/ethereum-attestation-service/eas-contracts},
+  note         = {Accessed 2026-11-13},
+  verified     = {contract sources (Common.sol, IEAS.sol, EAS.sol, SchemaResolver.sol), the SDK's offchain module, and the documentation repository (referenced attestations, timestamping, private data, resolver contracts) read; docs.attest.org itself did not render for the fetcher; the year is that of the sources' current major version line, not printed on a page, 2026-11-13}
+}
+
+% ---------------------------------------------------------------- guilds and public goods
+
+@article{epstein1998craft,
+  author   = {Epstein, S. R.},
+  title    = {Craft Guilds, Apprenticeship, and Technological Change in Preindustrial {Europe}},
+  journal  = {The Journal of Economic History},
+  volume   = {58},
+  number   = {3},
+  pages    = {684--713},
+  year     = {1998},
+  verified = {https://ideas.repec.org/a/cup/jechis/v58y1998i03p684-713_02.html (RePEc record and abstract: transferable skills through apprenticeship; technical diffusion through migrant labor), 2026-11-13}
+}
+
+@book{ogilvie2019guilds,
+  author    = {Ogilvie, Sheilagh},
+  title     = {The {European} Guilds: An Economic Analysis},
+  publisher = {Princeton University Press},
+  year      = {2019},
+  verified  = {https://press.princeton.edu/books/hardcover/9780691137544/the-european-guilds (publisher page and description read; the subtitle and press name are from the host and search results, the page text shows the main title only); bibliographic record only, 2026-11-13}
+}
+
+@misc{thegraph2026docs,
+  author       = {{The Graph}},
+  title        = {The {Graph} documentation: tokenomics, indexing and curating},
+  year         = {2026},
+  howpublished = {Documentation and protocol contracts},
+  url          = {https://thegraph.com/docs/en/resources/tokenomics/},
+  note         = {Accessed 2026-11-13},
+  verified     = {docs pages (tokenomics, curating, indexing overview, delegating) and the contracts RewardsManager.sol and DisputeManager.sol read through a summarising fetcher; wording to be re-checked before any verbatim quotation, 2026-11-13}
+}
+
+@misc{thegraph2026eligibility,
+  author       = {{The Graph Foundation}},
+  title        = {Rewards Eligibility Oracle},
+  year         = {2026},
+  howpublished = {Blog post, 25 August 2026},
+  url          = {https://thegraph.com/blog/rewards-eligibility-oracle/},
+  verified     = {blog page read through a summarising fetcher (indexing rewards follow signal and allocation and not served queries; 15.2 percent of 2025 indexing rewards to indexers not delivering value; eligibility test on served queries), 2026-11-13}
+}
+
+@misc{curve2026gauges,
+  author       = {{Curve}},
+  title        = {Gauge Controller},
+  year         = {2026},
+  howpublished = {Developer documentation},
+  url          = {https://docs.curve.finance/developer/gauges/gauge-controller},
+  note         = {Accessed 2026-11-13},
+  verified     = {documentation page read through a summarising fetcher (gauge weights define how much emission a gauge receives), 2026-11-13}
+}
+
+@misc{votium2026docs,
+  author       = {{Votium}},
+  title        = {Votium documentation: explainers},
+  year         = {2026},
+  howpublished = {Documentation},
+  url          = {https://docs.votium.app/explainers/briber-manual},
+  note         = {Accessed 2026-11-13},
+  verified     = {documentation pages for those who buy and those who sell votes read through a summarising fetcher, 2026-11-13}
+}
+
+% ---------------------------------------------------------------- collectible card games
+
+@inproceedings{churchill2021magic,
+  author    = {Churchill, Alex and Biderman, Stella and Herrick, Austin},
+  title     = {{Magic: The Gathering} Is {Turing} Complete},
+  booktitle = {10th International Conference on Fun with Algorithms (FUN 2021)},
+  series    = {LIPIcs},
+  volume    = {157},
+  pages     = {9:1--9:19},
+  year      = {2021},
+  doi       = {10.4230/LIPIcs.FUN.2021.9},
+  verified  = {https://arxiv.org/abs/1904.09828 and the Dagstuhl record for the DOI (abstract read), 2026-11-13}
+}
+
+@misc{kritz2025synergy,
+  author        = {Kritz, Joshua and Gaina, Raluca},
+  title         = {When 1+1 does not equal 2: Synergy in games},
+  year          = {2025},
+  eprint        = {2502.10304},
+  archivePrefix = {arXiv},
+  howpublished  = {arXiv:2502.10304 (preprint)},
+  verified      = {https://arxiv.org/abs/2502.10304 (abstract read; a preprint, not peer-reviewed; first names as given by the research pass and to be confirmed), 2026-11-13}
+}
+
+@article{luckingreiley1999magic,
+  author   = {Lucking-Reiley, David},
+  title    = {Using Field Experiments to Test Equivalence between Auction Formats: {Magic} on the {Internet}},
+  journal  = {American Economic Review},
+  volume   = {89},
+  number   = {5},
+  pages    = {1063--1080},
+  year     = {1999},
+  doi      = {10.1257/aer.89.5.1063},
+  verified = {https://econpapers.repec.org/RePEc:aea:aecrev:v:89:y:1999:i:5:p:1063-1080 (RePEc record and abstract), 2026-11-13}
+}
+
+@article{hughes2022rarity,
+  author   = {Hughes, Jonathan E.},
+  title    = {Demand for Rarity: Evidence from a Collectible Good},
+  journal  = {The Journal of Industrial Economics},
+  volume   = {70},
+  number   = {1},
+  pages    = {147--167},
+  year     = {2022},
+  doi      = {10.1111/joie.12262},
+  verified = {https://ideas.repec.org/a/bla/jindec/v70y2022i1p147-167.html (RePEc record and abstract), 2026-11-13}
+}

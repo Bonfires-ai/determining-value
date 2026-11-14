@@ -1,0 +1,64 @@
+\section{Bonfires, nodes and receipts}\label{sec:encounters}
+
+\paragraph{Participants.} Two kinds of party take part, on a host chain that the protocol takes as given.
+\begin{itemize}
+  \item A \emph{Bonfire} is a community with a grammar. Anyone who takes part in its discourse is a \emph{member},
+  at no cost; in the ordinary case a member is a person talking to the Bonfire's agent. A \emph{stakeholder} is a
+  member who holds stake in the Bonfire, either earned through contribution (Section~\ref{sec:reward}) or locked
+  from outside. Stake weighs in deciding what enters the grammar, shares in what the Bonfire earns, and is what is
+  lost when the Bonfire is at fault (Section~\ref{sec:bond}). A newcomer to the network joins a Bonfire that
+  exists, or starts one and takes up constructions from the others.
+  \item A \emph{node} supplies computation. It holds the inventory of each Bonfire it serves (Section~\ref{sec:constructions}), runs the engine on what
+  is said, issues receipts, and re-executes the receipts of other nodes.
+  To serve a Bonfire a node commits a fixed \emph{pledge} to it (Section~\ref{sec:bond}). A node may be run by
+  anyone, including the Bonfire it serves.
+\end{itemize}
+The Bonfire that registered a construction is its \emph{originator}. Two Bonfires are \emph{independent} when no
+party controls the governing stake of both. Members in common do not make two Bonfires one: a person who belongs
+to two communities is the ordinary route by which a construction travels from one to the other.
+
+\paragraph{The encounter.} The elementary act of the protocol is an \emph{encounter}: one round of a naming game
+\citep{steels1995spatial,baronchelli2006sharp}, in which a speaker produces a form for a meaning and a hearer
+obtains a meaning from it. Here at least one party is an agent applying an inventory, and every encounter
+takes place in the discourse of some Bonfire. In the ordinary case the other party is a member, talking to an agent
+that may direct sub-agents of its own. The agents of two Bonfires may also meet.
+
+\paragraph{What can be replayed.} When an agent reads what was said to it, the engine applies constructions from
+the inventory to the text and either arrives at a complete reading or does not. The protocol requires that step to
+be deterministic: anyone who holds the text and the inventory can repeat it and obtain the same reading, and can
+remove one construction and see whether the reading survives. The protocol pays only on facts of this kind.
+Whether the person was satisfied, or whether an outside system accepted a step the agent took, is not replayable.
+Such outcomes move a construction's standing in the inventory (Section~\ref{sec:constructions}), and they are no
+part of what is paid.
+
+Determinism is a requirement on the implementation and is listed among the open problems
+(Section~\ref{sec:open}). The constructions in a receipt are selected by the engine's search with no model in the
+loop, and the receipt fixes by hash the engine version, the inventory it was read against, and the order in which
+constructions are tried. Where a model settled a choice the grammar left open, the choice is recorded in the
+receipt, or the use is not counted.
+
+\paragraph{The receipt.} Each encounter produces a \emph{receipt}: a record naming the constructions that were
+necessary to the reading, by their hashes, with a commitment to the text, the Bonfire in whose discourse the
+encounter took place, the node, and the epoch. The node signs it. The receipt is what the network reasons about;
+the conversation itself stays where it happened.
+
+Nothing about a receipt needs a ledger until it is disputed. Receipts are therefore issued as signed attestations
+held off the chain and committed to in bundles, a pattern of which the Ethereum Attestation Service is one existing
+realisation \citep{eas2024contracts}. A receipt is signed as structured data, so anyone can verify the signature
+without consulting a ledger. Each receipt references the one before it in the same conversation, and a
+registration references its parents, so a conversation and a lineage are both chains of attestations. Once per
+epoch a node records on the host chain a single hash, the root of a tree over all its receipts for the epoch, which
+commits it to them before credit is computed. After a period in which any node may challenge, a contract on the
+host chain settles the epoch from the committed receipts.
+
+Three rules follow. Receipts are irrevocable, so that a node cannot retract one after it has been counted. A
+receipt under a committed root that its node does not produce on challenge is treated as one that failed to
+re-execute. And the text is attested only as the root of a tree over its turns, so that a challenge discloses the
+turns of that one encounter to the challenger and nothing else. That disclosure is a cost of the design
+(Section~\ref{sec:open}). An attestation establishes who signed what, and no later than when. That what was signed
+is true is established by re-execution and by stake.
+
+\paragraph{Gaps.} When an agent cannot resolve a form, the node records the failure as a \emph{gap}: a form, in a
+context, for which the inventory had no reading. Gaps are a Bonfire's own record of what its members tried to say
+and could not. They are the network's demand, and they are where the taking up of a construction begins
+(Section~\ref{sec:adoption}).

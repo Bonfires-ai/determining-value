@@ -1,0 +1,28 @@
+% fig:life -- the life of a construction
+\begin{tikzpicture}[
+  font=\small,
+  stage/.style={draw=cxnnavy, fill=cxngreen, rounded corners=2pt, minimum width=2.05cm, minimum height=0.8cm,
+               align=center},
+  arr/.style={-{Stealth[length=5pt]}, thick, cxnnavy},
+  note/.style={font=\scriptsize, text=black!70, align=center}
+]
+  \node[stage] (pub) {1. Make};
+  \node[stage, right=0.45cm of pub] (ado) {2. Serve};
+  \node[stage, right=0.45cm of ado] (enc) {3. Look up};
+  \node[stage, right=0.45cm of enc] (chk) {4. Adopt};
+  \node[stage, right=0.45cm of chk] (rep) {5. Count};
+  \node[stage, right=0.45cm of rep] (set) {6. Pay};
+  \draw[arr] (pub) -- (ado);
+  \draw[arr] (ado) -- (enc);
+  \draw[arr] (enc) -- (chk);
+  \draw[arr] (chk) -- (rep);
+  \draw[arr] (rep) -- (set);
+  \node[note, below=0.12cm of pub] {registered,\\published};
+  \node[note, below=0.12cm of ado] {nodes\\pledge};
+  \node[note, below=0.12cm of enc] {from\\a gap};
+  \node[note, below=0.12cm of chk] {trial, then\\confirmation};
+  \node[note, below=0.12cm of rep] {Bonfires that\\hold it};
+  \node[note, below=0.12cm of set] {epoch budget\\divided};
+  \draw[arr, modelred] (chk.north) -- ++(0,0.55) -| node[pos=0.25, above, font=\scriptsize, text=modelred]
+    {a variant, registered with its parent} (pub.north);
+\end{tikzpicture}

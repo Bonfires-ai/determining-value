@@ -1,0 +1,23 @@
+% fig:adoption -- a gap in B, a lookup into A's grammar, trial and adoption, and what flows back to A
+\begin{tikzpicture}[
+  font=\small,
+  cxn/.style={draw=cxnnavy, fill=cxngreen, rounded corners=2pt, minimum width=3.0cm, minimum height=0.8cm,
+              align=center},
+  plain/.style={draw=black!60, rounded corners=2pt, minimum width=3.0cm, minimum height=0.8cm, align=center},
+  desc/.style={-{Stealth[length=5pt]}, thick, cxnnavy},
+  credit/.style={-{Stealth[length=5pt]}, thick, okgreen, dashed},
+  note/.style={font=\scriptsize, text=black!70, align=center}
+]
+  \node[cxn] (pa) at (0,0) {construction\\[-1pt]{\scriptsize registered by Bonfire $A$}};
+  \node[draw=modelred, text=modelred, rounded corners=2pt, minimum height=0.8cm, align=center, font=\scriptsize]
+    (gap) at (4.6,0) {gap in\\Bonfire $B$};
+  \node[plain] (ad) at (9.2,0) {trial, then adoption\\[-1pt]{\scriptsize by $B$'s stakeholders}};
+  \node[cxn] (var) at (9.2,-2.0) {variant\\[-1pt]{\scriptsize registered by Bonfire $B$}};
+  \draw[desc, modelred] (gap) -- node[above, font=\scriptsize, text=modelred] {lookup} (pa);
+  \draw[desc] (gap) -- node[above, font=\scriptsize, text=black!70] {by reference} (ad);
+  \draw[desc, black!60] (ad) -- node[right, font=\scriptsize, text=black!70] {changed} (var);
+  \draw[credit] (ad.north) -- ++(0,0.55) -| node[pos=0.25, above, font=\scriptsize, text=okgreen]
+    {$B$ counts toward the breadth of $A$'s construction} (pa.north);
+  \draw[credit] (var.west) -| node[pos=0.25, above, font=\scriptsize, text=okgreen]
+    {parent: share $\lambda$ of the variant's credit} (pa.south);
+\end{tikzpicture}

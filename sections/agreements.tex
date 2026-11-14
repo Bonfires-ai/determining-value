@@ -1,0 +1,54 @@
+\section{Three agreements}\label{sec:agreements}
+
+A protocol that pays for use must bring its participants to agree on three different things. They differ in kind
+and rest on different assumptions, and treating them as one problem hides where the difficulty lies.
+Table~\ref{tab:agreements} separates them.
+
+\begin{table}[!htb]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}p{0.23\textwidth}XX@{}}
+\toprule
+\textbf{What is agreed} & \textbf{How} & \textbf{Assumption} \\
+\midrule
+Which constructions exist and who registered each first &
+Signed, hashed registration, ordered by the host chain &
+The host chain's own, for the order. Who said what needs none: unforgeable signatures settle it for any number of
+traitors \citep{lamport1982byzantine} \\
+\addlinespace
+Whether a use happened &
+Re-execution of the receipt against the committed text; paid spot checks; a challenge on mismatch &
+An honest node is among those that examine the receipt \citep{canetti2011delegation}; checking is paid for
+\citep{luu2015verifier}; a disputed finding needs honest voting stake \\
+\addlinespace
+Whether the Bonfires that hold a construction are independent &
+Cannot be re-executed. Anchored in stake that can be lost, and in a reward that a small group does not reach &
+Economic: posing as many costs more than it earns \\
+\bottomrule
+\end{tabularx}
+\caption{The three agreements of the protocol, each with the assumption it rests on.}\label{tab:agreements}
+\end{table}
+
+The first agreement is on the order of signed messages, which existing ledgers already provide
+\citep{nakamoto2008bitcoin}; the protocol takes it from a host chain. The second is the verification of a computation over committed inputs that the protocol requires to be
+deterministic, for which a single honest party that re-executes is enough to find
+an error \citep{canetti2011delegation}, though a finding that the accused disputes is settled by a vote. Where
+checking is costly, rational parties have an incentive to accept results unchecked \citep{luu2015verifier}, so the
+protocol pays for spot checks whether or not they find a fault.
+
+The third is where the difficulty lies. That a use happened does not show that it was anyone's but the
+claimant's. Any party can produce correct and pointless conversations in any number, and no computation tells them
+from useful ones. So the protocol does not count uses. It counts the independent Bonfires that have taken a
+construction up and still hold it (Section~\ref{sec:reward}), and it pays nothing until they are several. One party
+can pose as many Bonfires, and whether it has done so cannot be computed. That question is answered by stake: each
+Bonfire that counts is bonded, what can be earned is capped by the stake committed, and stake is lost when several
+Bonfires are found to be one party (Section~\ref{sec:bond}). The first two agreements are borrowed; the protocol
+adds only that structuring discourse into constructions is what makes the second available.
+
+\begin{figure}[!htb]
+\centering
+\input{figures/fig-life}
+\caption{The life of a construction. Members' discourse yields it and their Bonfire registers and publishes it;
+nodes pledge to the Bonfire and serve it; another Bonfire's gap becomes a lookup; the construction is tried and
+adopted; each epoch the Bonfires that hold it are counted; the epoch budget is divided. A Bonfire that changes it
+registers a variant with its parent.}\label{fig:life}
+\end{figure}
